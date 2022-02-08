@@ -23,7 +23,7 @@ struct Constants {
         }
         return keyPrivate
     }()
-    
+
     static let apiKeyPublic: String = {
         guard let keyPublic = infoDictionay["API_KEY_PUBLIC"] as? String else {
             fatalError("NO API PUBLIC KEY")

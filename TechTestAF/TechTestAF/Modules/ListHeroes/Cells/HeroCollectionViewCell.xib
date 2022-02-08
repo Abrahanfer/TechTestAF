@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HeroCollectionViewCell" customModule="TechTestAF" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="160" height="191"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="160" height="191"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nzm-Hg-JzM">
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="191"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xm-oD-byq">
+                        <rect key="frame" x="10" y="118.5" width="140" height="48"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="0xm-oD-byq" secondAttribute="trailing" constant="10" id="2ux-U3-Yfv"/>
+                <constraint firstAttribute="trailing" secondItem="nzm-Hg-JzM" secondAttribute="trailing" id="EH0-qt-ypH"/>
+                <constraint firstAttribute="bottom" secondItem="nzm-Hg-JzM" secondAttribute="bottom" id="EQS-9B-sMh"/>
+                <constraint firstItem="0xm-oD-byq" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" constant="25" id="Hsq-Zr-QwQ"/>
+                <constraint firstItem="0xm-oD-byq" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.25" id="Mzp-q7-hsQ"/>
+                <constraint firstItem="nzm-Hg-JzM" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="VLt-ek-cyr"/>
+                <constraint firstItem="nzm-Hg-JzM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="d3t-BG-0AY"/>
+                <constraint firstItem="0xm-oD-byq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="m6l-gk-zsq"/>
+            </constraints>
+            <size key="customSize" width="160" height="191"/>
+            <connections>
+                <outlet property="heroImage" destination="nzm-Hg-JzM" id="esH-j6-v3X"/>
+                <outlet property="heroTitle" destination="0xm-oD-byq" id="Pza-mi-noP"/>
+            </connections>
+            <point key="canvasLocation" x="159" y="97"/>
+        </collectionViewCell>
+    </objects>
+</document>
