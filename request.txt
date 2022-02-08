@@ -1,0 +1,7 @@
+#-*- restclient -*-
+#
+:host = https://gateway.marvel.com
+:api_key_pub = a4446f85f764e3bcd7501dfd15e6141c
+
+# Characters
+GET :host/v1/public/characters?ts=1&apikey=:api_key_pub&hash=17a49daa649702073c6e1df088264bf9

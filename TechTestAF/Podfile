@@ -6,6 +6,8 @@ target 'TechTestAF' do
   use_frameworks!
 
   # Pods for TechTestAF
+  pod 'PromiseKit', '6.15.3'
+  pod 'ObjectMapper', '4.2.0'
 
   target 'TechTestAFTests' do
     inherit! :search_paths

@@ -148,3 +148,6 @@ fastlane/screenshots/screenshots.html
 fastlane/test_output
 screenshots/
 docs/
+
+# Prevent Keys.xcconfig file from tracking
+**/Keys.xcconfig
