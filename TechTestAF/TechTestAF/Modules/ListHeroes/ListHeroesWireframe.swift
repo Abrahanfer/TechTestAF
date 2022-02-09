@@ -13,4 +13,10 @@ import UIKit
 class ListHeroesWireframe: BaseWireframe, ListHeroesWireframeContract {
     weak var output: ListHeroesWireframeOutputContract?
     weak var view: UIViewController!
+
+    func goToDetail(hero: Hero) {
+        let destinyView = DetailHeroBuilder.build(hero: hero)
+        assert(view.navigationController != nil, "Navigation Controller should not be nil")
+        view.navigationController?.pushViewController(destinyView, animated: true)
+    }
 }

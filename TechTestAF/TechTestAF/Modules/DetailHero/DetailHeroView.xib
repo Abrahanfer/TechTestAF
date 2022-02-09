@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light" />
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailHeroView" customModule="VIPER" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailHeroView" customModule="TechTestAF" customModuleProvider="target">
             <connections>
+                <outlet property="heroDescription" destination="6Wk-nK-UbY" id="3Nf-PM-I7P"/>
+                <outlet property="heroImage" destination="X7s-ug-oNe" id="cBk-Nl-OD9"/>
+                <outlet property="heroName" destination="RAo-Oi-UIX" id="akj-gt-6rY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,8 +19,38 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X7s-ug-oNe">
+                    <rect key="frame" x="0.0" y="44" width="414" height="224"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAo-Oi-UIX">
+                    <rect key="frame" x="15" y="273" width="384" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Wk-nK-UbY">
+                    <rect key="frame" x="15" y="298.5" width="384" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="tAt-aP-EcC"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="RAo-Oi-UIX" firstAttribute="leading" secondItem="tAt-aP-EcC" secondAttribute="leading" constant="15" id="0qo-xk-omL"/>
+                <constraint firstItem="X7s-ug-oNe" firstAttribute="leading" secondItem="tAt-aP-EcC" secondAttribute="leading" id="4ix-QX-7qB"/>
+                <constraint firstItem="6Wk-nK-UbY" firstAttribute="top" secondItem="RAo-Oi-UIX" secondAttribute="bottom" constant="5" id="4qb-OK-EFT"/>
+                <constraint firstItem="X7s-ug-oNe" firstAttribute="top" secondItem="tAt-aP-EcC" secondAttribute="top" id="9FQ-Jy-eWS"/>
+                <constraint firstItem="tAt-aP-EcC" firstAttribute="trailing" secondItem="X7s-ug-oNe" secondAttribute="trailing" id="9Ge-QW-Tcp"/>
+                <constraint firstItem="6Wk-nK-UbY" firstAttribute="leading" secondItem="tAt-aP-EcC" secondAttribute="leading" constant="15" id="KyM-wT-Fhq"/>
+                <constraint firstItem="X7s-ug-oNe" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.25" id="Qjn-9Y-Yae"/>
+                <constraint firstItem="tAt-aP-EcC" firstAttribute="trailing" secondItem="RAo-Oi-UIX" secondAttribute="trailing" constant="15" id="j37-kf-bgj"/>
+                <constraint firstItem="tAt-aP-EcC" firstAttribute="trailing" secondItem="6Wk-nK-UbY" secondAttribute="trailing" constant="15" id="v84-b7-fkM"/>
+                <constraint firstItem="RAo-Oi-UIX" firstAttribute="top" secondItem="X7s-ug-oNe" secondAttribute="bottom" constant="5" id="yOq-Zd-Bcd"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="111"/>
         </view>
     </objects>
 </document>

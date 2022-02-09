@@ -13,7 +13,6 @@ class ListHeroesView: BaseViewController, ListHeroesViewContract {
 
     @IBOutlet weak var collectionView: UICollectionView!
     var presenter: ListHeroesPresenterContract?
-    private var heroes: [Hero] = []
 
     private let minIteritemSpacing = 30.0
     private let cellWidth = 150.0
@@ -49,16 +48,16 @@ class ListHeroesView: BaseViewController, ListHeroesViewContract {
     }
 
     func updateListWithNewElements() {
-        if let heroesArray = presenter?.getHeroes() {
-            heroes = heroesArray
-        }
         collectionView.reloadData()
     }
 }
 
 extension ListHeroesView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return heroes.count
+        guard let heroesCount = presenter?.getHeroesCount() else {
+            return 0
+        }
+        return heroesCount
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -84,5 +83,11 @@ extension ListHeroesView: UICollectionViewDelegateFlowLayout {
         let rightInset = leftInset
 
         return UIEdgeInsets(top: 10.0, left: leftInset, bottom: 10.0, right: rightInset)
+    }
+}
+
+extension ListHeroesView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter?.selectItem(position: indexPath.item)
     }
 }

@@ -11,7 +11,11 @@ import UIKit
 
 class DetailHeroView: BaseViewController, DetailHeroViewContract {
 
-	var presenter: DetailHeroPresenterContract?
+    @IBOutlet weak var heroImage: UIImageView!
+    @IBOutlet weak var heroName: UILabel!
+    @IBOutlet weak var heroDescription: UILabel!
+
+    var presenter: DetailHeroPresenterContract?
 
 	// MARK: - LifeCycle
     override func viewDidLoad() {

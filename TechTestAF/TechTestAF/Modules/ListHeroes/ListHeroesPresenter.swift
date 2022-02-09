@@ -10,7 +10,6 @@
 import Foundation
 
 class ListHeroesPresenter: BasePresenter, ListHeroesPresenterContract {
-
     weak var view: ListHeroesViewContract?
     var interactor: ListHeroesInteractorContract?
     var wireframe: ListHeroesWireframeContract?
@@ -30,8 +29,24 @@ class ListHeroesPresenter: BasePresenter, ListHeroesPresenterContract {
         view?.updateListWithNewElements()
     }
 
-    func getHeroes() -> [Hero] {
-        return heroes
+    func getHeroesCount() -> Int {
+        return heroes.count
+    }
+
+    func getHeroAtPosition(position: Int) -> Hero {
+        if heroes.indices.contains(position) {
+            return heroes[position]
+        } else {
+            fatalError("GIVE ERROR FEEDBACK")
+        }
+    }
+
+    func selectItem(position: Int) {
+        if heroes.indices.contains(position) {
+            wireframe?.goToDetail(hero: heroes[position])
+        } else {
+            fatalError("REPORT ERROR")
+        }
     }
 }
 

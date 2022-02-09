@@ -5,3 +5,6 @@
 
 # Characters
 GET :host/v1/public/characters?ts=1&apikey=:api_key_pub&hash=17a49daa649702073c6e1df088264bf9
+
+# Characters detail
+GET :host/v1/public/characters/1011136?ts=1&apikey=:api_key_pub&hash=17a49daa649702073c6e1df088264bf9

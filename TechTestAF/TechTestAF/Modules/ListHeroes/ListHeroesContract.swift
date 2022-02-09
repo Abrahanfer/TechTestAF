@@ -24,7 +24,9 @@ protocol ListHeroesPresenterContract: BasePresenter {
 
     func viewWillAppear()
     func viewDidLoad()
-    func getHeroes() -> [Hero]
+    func getHeroesCount() -> Int
+    func getHeroAtPosition(position: Int) -> Hero
+    func selectItem(position: Int)
 }
 
 protocol ListHeroesInteractorContract: BaseInteractor {
@@ -40,6 +42,8 @@ protocol ListHeroesInteractorOutputContract: AnyObject {
 protocol ListHeroesWireframeContract: BaseWireframe {
     var output: ListHeroesWireframeOutputContract? { get set }
     var view: UIViewController! { get set }
+
+    func goToDetail(hero: Hero)
 }
 
 protocol ListHeroesWireframeOutputContract: AnyObject {
