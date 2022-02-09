@@ -11,6 +11,6 @@ import Foundation
 import UIKit
 
 class ListHeroesWireframe: BaseWireframe, ListHeroesWireframeContract {
-    weak var output: ListHeroesWireframeOutputContract!
+    weak var output: ListHeroesWireframeOutputContract?
     weak var view: UIViewController!
 }

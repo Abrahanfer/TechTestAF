@@ -3,7 +3,7 @@
 //  TechTestAF
 //
 //  Created by Abrahán Fernández on 8/2/22.
-//  Copyright © 2022 ___ORGANIZATIONNAME___. All rights reserved.
+//  Copyright © 2022 Abrahanfer.me. All rights reserved.
 //
 //
 
@@ -12,30 +12,33 @@ import UIKit
 import PromiseKit
 
 protocol ListHeroesViewContract: BaseViewController {
-    var presenter: ListHeroesPresenterContract! { get set }
+    var presenter: ListHeroesPresenterContract? { get set }
 
+    func updateListWithNewElements()
 }
 
 protocol ListHeroesPresenterContract: BasePresenter {
-    var view: ListHeroesViewContract! { get set }
-    var interactor: ListHeroesInteractorContract! { get set }
-    var wireframe: ListHeroesWireframeContract! { get set }
+    var view: ListHeroesViewContract? { get set }
+    var interactor: ListHeroesInteractorContract? { get set }
+    var wireframe: ListHeroesWireframeContract? { get set }
 
     func viewWillAppear()
     func viewDidLoad()
-
+    func getHeroes() -> [Hero]
 }
 
 protocol ListHeroesInteractorContract: BaseInteractor {
-    var output: ListHeroesInteractorOutputContract! {get set}
+    var output: ListHeroesInteractorOutputContract? {get set}
+
+    func getHeroes(page: Int)
 }
 
 protocol ListHeroesInteractorOutputContract: AnyObject {
-
+    func updateWithHeroes(heroes: [Hero])
 }
 
 protocol ListHeroesWireframeContract: BaseWireframe {
-    var output: ListHeroesWireframeOutputContract! { get set }
+    var output: ListHeroesWireframeOutputContract? { get set }
     var view: UIViewController! { get set }
 }
 

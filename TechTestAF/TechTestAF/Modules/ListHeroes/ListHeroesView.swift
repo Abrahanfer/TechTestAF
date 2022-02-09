@@ -12,32 +12,53 @@ import UIKit
 class ListHeroesView: BaseViewController, ListHeroesViewContract {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    var presenter: ListHeroesPresenterContract!
+    var presenter: ListHeroesPresenterContract?
+    private var heroes: [Hero] = []
+
+    private let minIteritemSpacing = 30.0
+    private let cellWidth = 150.0
+    private let cellHeigh = 200.0
+
+    override func loadView() {
+        super.loadView()
+        title = "Heroes"
+    }
 
 	// MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
-        self.presenter.viewDidLoad()
+
+        self.presenter?.viewDidLoad()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.presenter.viewWillAppear()
+        self.presenter?.viewWillAppear()
     }
 
     func setupView() {
         let cellName = String(describing: HeroCollectionViewCell.self)
         collectionView.register(UINib(nibName: cellName, bundle: nil), forCellWithReuseIdentifier: cellName)
-        collectionView.setCollectionViewLayout(UICollectionViewFlowLayout(), animated: true)
+        let collectionViewFlowLayout = UICollectionViewFlowLayout()
+        collectionViewFlowLayout.minimumInteritemSpacing = minIteritemSpacing
+        collectionView.setCollectionViewLayout(collectionViewFlowLayout, animated: true)
         collectionView.dataSource = self
+        collectionView.delegate = self
 
+    }
+
+    func updateListWithNewElements() {
+        if let heroesArray = presenter?.getHeroes() {
+            heroes = heroesArray
+        }
+        collectionView.reloadData()
     }
 }
 
 extension ListHeroesView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return heroes.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -45,5 +66,23 @@ extension ListHeroesView: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath)
 
         return cell
+    }
+}
+
+extension ListHeroesView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: cellWidth, height: cellHeigh)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        let totalWidth = cellWidth * 2.0
+        let totalSpacingWidth = minIteritemSpacing * 1
+        let leftInset = (collectionView.frame.width - CGFloat(totalWidth + totalSpacingWidth)) / 2
+        let rightInset = leftInset
+
+        return UIEdgeInsets(top: 10.0, left: leftInset, bottom: 10.0, right: rightInset)
     }
 }

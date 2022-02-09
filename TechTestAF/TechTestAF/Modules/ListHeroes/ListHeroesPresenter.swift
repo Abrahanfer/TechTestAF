@@ -11,16 +11,27 @@ import Foundation
 
 class ListHeroesPresenter: BasePresenter, ListHeroesPresenterContract {
 
-    weak var view: ListHeroesViewContract!
-    var interactor: ListHeroesInteractorContract!
-    var wireframe: ListHeroesWireframeContract!
+    weak var view: ListHeroesViewContract?
+    var interactor: ListHeroesInteractorContract?
+    var wireframe: ListHeroesWireframeContract?
+
+    private var heroes: [Hero] = []
+
+    func viewDidLoad() {
+        interactor?.getHeroes(page: 0)
+    }
 
     func viewWillAppear() {
 
     }
 
-    func viewDidLoad() {
+    func updateWithHeroes(heroes: [Hero]) {
+        self.heroes.append(contentsOf: heroes)
+        view?.updateListWithNewElements()
+    }
 
+    func getHeroes() -> [Hero] {
+        return heroes
     }
 }
 

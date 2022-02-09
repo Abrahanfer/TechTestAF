@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
 
-        window.rootViewController = ListHeroesBuilder.build()
+        window.rootViewController = UINavigationController(rootViewController: ListHeroesBuilder.build())
 
         self.window = window
         window.makeKeyAndVisible()

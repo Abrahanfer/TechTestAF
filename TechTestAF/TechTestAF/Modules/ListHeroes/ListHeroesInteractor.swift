@@ -10,11 +10,19 @@
 import Foundation
 
 class ListHeroesInteractor: BaseInteractor, ListHeroesInteractorContract {
-    weak var output: ListHeroesInteractorOutputContract!
+    weak var output: ListHeroesInteractorOutputContract?
 
     var provider: HeroesProviderContract
 
     init (provider: HeroesProviderContract) {
         self.provider = provider
+    }
+
+    func getHeroes(page: Int) {
+        provider.getHeroes(page: page).done { heroes in
+            self.output?.updateWithHeroes(heroes: heroes)
+        }.catch { error in
+            fatalError("TO IMPLEMENT")
+        }
     }
 }

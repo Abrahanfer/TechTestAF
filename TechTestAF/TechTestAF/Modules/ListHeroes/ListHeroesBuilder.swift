@@ -20,13 +20,13 @@ class ListHeroesBuilder {
         let interactor = ListHeroesInteractor(provider: provider)
 
         view.presenter = presenter
-        view.presenter.view = view
-        view.presenter.interactor = interactor
-        view.presenter.interactor.output = presenter
-        view.presenter.wireframe = wireframe
+        view.presenter?.view = view
+        view.presenter?.interactor = interactor
+        view.presenter?.interactor?.output = presenter
+        view.presenter?.wireframe = wireframe
 
-        view.presenter.wireframe.output = presenter
-        view.presenter.wireframe.view = view
+        view.presenter?.wireframe?.output = presenter
+        view.presenter?.wireframe?.view = view
 
         return view
     }
