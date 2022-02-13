@@ -27,6 +27,7 @@ protocol ListHeroesPresenterContract: BasePresenter {
     func getHeroesCount() -> Int
     func getHeroAtPosition(position: Int) -> Hero
     func selectItem(position: Int)
+    func getPageForItem(itemIndex: Int)
 }
 
 protocol ListHeroesInteractorContract: BaseInteractor {

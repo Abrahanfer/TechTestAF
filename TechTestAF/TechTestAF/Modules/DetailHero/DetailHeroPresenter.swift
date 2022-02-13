@@ -14,8 +14,20 @@ class DetailHeroPresenter: BasePresenter, DetailHeroPresenterContract {
     weak var view: DetailHeroViewContract?
     var interactor: DetailHeroInteractorContract?
     var wireframe: DetailHeroWireframeContract?
+    private var hero: Hero
+
+    // FIXME: Maybe move this to interactor layer to help getting other resources related
+    required init(hero: Hero) {
+        self.hero = hero
+    }
 
     func viewWillAppear() {
+        if let url = URL(string: hero.getThumbnailStringFor(size: .landscapeIncredible)) {
+            view?.setImage(image: url)
+        }
+
+        view?.setMainText(mainText: hero.name ?? "")
+        view?.setDescription(text: hero.description ?? "")
 
     }
 

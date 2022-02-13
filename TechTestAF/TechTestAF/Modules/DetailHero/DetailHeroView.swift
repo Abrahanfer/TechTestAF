@@ -30,6 +30,21 @@ class DetailHeroView: BaseViewController, DetailHeroViewContract {
     }
 
     func setupView() {
+        heroImage.image = nil
+        heroName.text = ""
+        heroDescription.text = ""
 
+    }
+
+    func setImage(image: URL) {
+        heroImage.sd_setImage(with: image, completed: nil)
+    }
+
+    func setMainText(mainText: String) {
+        heroName.text = mainText
+    }
+
+    func setDescription(text: String) {
+        heroDescription.text = text
     }
 }

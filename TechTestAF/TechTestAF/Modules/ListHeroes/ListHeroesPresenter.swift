@@ -15,6 +15,7 @@ class ListHeroesPresenter: BasePresenter, ListHeroesPresenterContract {
     var wireframe: ListHeroesWireframeContract?
 
     private var heroes: [Hero] = []
+    private var refreshingData = false
 
     func viewDidLoad() {
         interactor?.getHeroes(page: 0)
@@ -26,6 +27,7 @@ class ListHeroesPresenter: BasePresenter, ListHeroesPresenterContract {
 
     func updateWithHeroes(heroes: [Hero]) {
         self.heroes.append(contentsOf: heroes)
+        refreshingData = false
         view?.updateListWithNewElements()
     }
 
@@ -46,6 +48,15 @@ class ListHeroesPresenter: BasePresenter, ListHeroesPresenterContract {
             wireframe?.goToDetail(hero: heroes[position])
         } else {
             fatalError("REPORT ERROR")
+        }
+    }
+
+    func getPageForItem(itemIndex: Int) {
+        let pageToGet = itemIndex / 20 // Page limit for request
+        if !refreshingData {
+            // FIXME: ActivityIndicator
+            refreshingData = true
+            interactor?.getHeroes(page: pageToGet)
         }
     }
 }

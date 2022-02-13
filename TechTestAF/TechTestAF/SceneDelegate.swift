@@ -19,8 +19,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         let window = UIWindow(windowScene: windowScene)
+        UINavigationBar.appearance().tintColor = UIColor(named: "ForegroundColor")
+        UINavigationBar.appearance().barTintColor = .white
+        let navigationController = UINavigationController(rootViewController: ListHeroesBuilder.build())
 
-        window.rootViewController = UINavigationController(rootViewController: ListHeroesBuilder.build())
+
+        window.rootViewController = navigationController
 
         self.window = window
         window.makeKeyAndVisible()

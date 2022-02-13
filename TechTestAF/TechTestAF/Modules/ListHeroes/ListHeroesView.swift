@@ -15,8 +15,8 @@ class ListHeroesView: BaseViewController, ListHeroesViewContract {
     var presenter: ListHeroesPresenterContract?
 
     private let minIteritemSpacing = 30.0
-    private let cellWidth = 150.0
-    private let cellHeigh = 200.0
+    private let cellWidth = 143.0
+    private let cellHeigh = 212.0
 
     override func loadView() {
         super.loadView()
@@ -27,7 +27,7 @@ class ListHeroesView: BaseViewController, ListHeroesViewContract {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
-
+        self.showActivityIndicator()
         self.presenter?.viewDidLoad()
     }
 
@@ -48,6 +48,7 @@ class ListHeroesView: BaseViewController, ListHeroesViewContract {
     }
 
     func updateListWithNewElements() {
+        self.stopActivityIndicator()
         collectionView.reloadData()
     }
 }
@@ -62,9 +63,27 @@ extension ListHeroesView: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellName = String(describing: HeroCollectionViewCell.self)
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath)
+        // swiftlint:disable:next force_cast
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as! HeroCollectionViewCell
+        guard let hero = presenter?.getHeroAtPosition(position: indexPath.item) else {
+            assert(false, "SHOUL RECEIVE HERO OBJECT")
+            return UICollectionViewCell()
+        }
+        cell.setHeroData(hero: hero)
 
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
+        guard let totalCountItems = presenter?.getHeroesCount() else {
+            return
+        }
+
+        if indexPath.item == totalCountItems - 1 {
+            self.showActivityIndicator()
+            presenter?.getPageForItem(itemIndex: indexPath.item + 2)
+        }
     }
 }
 

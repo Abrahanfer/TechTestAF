@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class HeroCollectionViewCell: UICollectionViewCell {
 
@@ -15,8 +16,20 @@ class HeroCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
 
-        backgroundColor = .blue
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        heroImage.image = nil
+        heroTitle.text = ""
+    }
+
+    func setHeroData(hero: Hero) {
+        let thumbnailString = hero.getThumbnailStringFor(size: .portraitXLarge)
+        if !thumbnailString.isEmpty, let urlImage = URL(string: thumbnailString) {
+            heroImage.sd_setImage(with: urlImage, completed: nil)
+        }
+        heroTitle.text = hero.name
     }
 
 }

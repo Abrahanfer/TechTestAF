@@ -14,6 +14,9 @@ import PromiseKit
 protocol DetailHeroViewContract: BaseViewController {
     var presenter: DetailHeroPresenterContract? { get set }
 
+    func setImage(image: URL)
+    func setMainText(mainText: String)
+    func setDescription(text: String)
 }
 
 protocol DetailHeroPresenterContract: BasePresenter {
@@ -21,6 +24,7 @@ protocol DetailHeroPresenterContract: BasePresenter {
     var interactor: DetailHeroInteractorContract? { get set }
     var wireframe: DetailHeroWireframeContract? { get set }
 
+    init(hero: Hero)
     func viewWillAppear()
     func viewDidLoad()
 

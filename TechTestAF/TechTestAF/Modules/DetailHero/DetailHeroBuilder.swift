@@ -13,7 +13,7 @@ class DetailHeroBuilder {
 
     static func build(hero: Hero) -> DetailHeroView {
         let view = DetailHeroView(nibName: String(describing: DetailHeroView.self), bundle: nil)
-        let presenter = DetailHeroPresenter()
+        let presenter = DetailHeroPresenter(hero: hero)
         let wireframe = DetailHeroWireframe()
 
         let interactor = DetailHeroInteractor()
