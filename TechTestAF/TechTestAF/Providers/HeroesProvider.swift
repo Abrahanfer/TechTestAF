@@ -11,7 +11,6 @@ import CryptoKit
 
 protocol HeroesProviderContract {
     func getHeroes(page: Int) -> Promise<[Hero]>
-    func getHeoreDetail() -> Promise<HeroDetail>
 }
 
 class HeroesProvider: HeroesProviderContract {
@@ -72,10 +71,6 @@ class HeroesProvider: HeroesProviderContract {
             dataTask.resume()
 
         }
-    }
-
-    func getHeoreDetail() -> Promise<HeroDetail> {
-        fatalError("TO IMPLEMENT")
     }
 
     // MARK: - Private functions
