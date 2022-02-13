@@ -191,7 +191,6 @@
 				595814B827AFE2340007EB3C /* ViewController.swift */,
 				595814BD27AFE2390007EB3C /* Assets.xcassets */,
 				595814BF27AFE2390007EB3C /* LaunchScreen.storyboard */,
-				595814C227AFE2390007EB3C /* Info.plist */,
 			);
 			path = TechTestAF;
 			sourceTree = "<group>";
@@ -246,6 +245,7 @@
 		595814EE27B01FBA0007EB3C /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
+				595814C227AFE2390007EB3C /* Info.plist */,
 				595814EF27B01FCD0007EB3C /* Constants.swift */,
 				595814F927B2B5510007EB3C /* Keys.xcconfig */,
 			);

@@ -52,7 +52,7 @@ class ListHeroesPresenter: BasePresenter, ListHeroesPresenterContract {
     }
 
     func getPageForItem(itemIndex: Int) {
-        let pageToGet = itemIndex / 20 // FIXME: Page limit for request to constant
+        let pageToGet = itemIndex / Constants.resultsForPageLimit // Page limit for request
         if !refreshingData {
             refreshingData = true
             interactor?.getHeroes(page: pageToGet)

@@ -21,7 +21,7 @@ class HeroesProvider: HeroesProviderContract {
         case errorRetreivingHeroDetailPage
     }
 
-    private let offsetPage = 20
+    private let offsetPage = Constants.resultsForPageLimit
     private var session: URLSession!
 
     init() {

@@ -32,4 +32,7 @@ struct Constants {
     }()
     // Host
     static let host = "https://gateway.marvel.com"
+
+    // Results for page number limit
+    static let resultsForPageLimit = 20
 }
