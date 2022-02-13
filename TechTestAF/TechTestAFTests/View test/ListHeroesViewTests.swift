@@ -8,7 +8,7 @@
 import XCTest
 @testable import TechTestAF
 
-class TechTestAFTests: XCTestCase {
+class ListHeroesViewTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -18,16 +18,9 @@ class TechTestAFTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testLoadView() throws {
+        let view = ListHeroesView(nibName: String(describing: ListHeroesView.self), bundle: nil)
+        view.loadView()
+        XCTAssertNotNil(view.collectionView, "Collection view should not be nil")
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

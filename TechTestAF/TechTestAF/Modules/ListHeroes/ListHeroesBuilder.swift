@@ -12,7 +12,7 @@ import UIKit
 class ListHeroesBuilder {
 
     static func build() -> ListHeroesView {
-        let view = ListHeroesView.init(nibName: String(describing: ListHeroesView.self), bundle: nil)
+        let view = ListHeroesView(nibName: String(describing: ListHeroesView.self), bundle: nil)
         let presenter = ListHeroesPresenter()
         let wireframe = ListHeroesWireframe()
 
