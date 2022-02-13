@@ -13,6 +13,10 @@ class BaseViewController: UIViewController {
 
     private var activityIndicator: UIActivityIndicatorView?
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     func showActivityIndicator() {
         activityIndicator = UIActivityIndicatorView()
         activityIndicator?.style = UIActivityIndicatorView.Style.large
@@ -31,5 +35,11 @@ class BaseViewController: UIViewController {
         activityIndicator?.stopAnimating()
         activityIndicator?.removeFromSuperview()
         activityIndicator = nil
+    }
+}
+
+class BaseNavigationController: UINavigationController {
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }

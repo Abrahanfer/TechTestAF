@@ -18,7 +18,6 @@
 		595814D827AFE23A0007EB3C /* TechTestAFUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595814D727AFE23A0007EB3C /* TechTestAFUITestsLaunchTests.swift */; };
 		595814E927B018CD0007EB3C /* HeroesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595814E827B018CD0007EB3C /* HeroesProvider.swift */; };
 		595814EB27B019680007EB3C /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595814EA27B019680007EB3C /* Hero.swift */; };
-		595814ED27B019970007EB3C /* HeroDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595814EC27B019970007EB3C /* HeroDetail.swift */; };
 		595814F027B01FCD0007EB3C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595814EF27B01FCD0007EB3C /* Constants.swift */; };
 		595814F327B024B90007EB3C /* page-characters.json in Resources */ = {isa = PBXBuildFile; fileRef = 595814F227B024B90007EB3C /* page-characters.json */; };
 		595814F527B024D50007EB3C /* LiteralsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595814F427B024D50007EB3C /* LiteralsUtils.swift */; };
@@ -88,7 +87,6 @@
 		595814D727AFE23A0007EB3C /* TechTestAFUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechTestAFUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		595814E827B018CD0007EB3C /* HeroesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesProvider.swift; sourceTree = "<group>"; };
 		595814EA27B019680007EB3C /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
-		595814EC27B019970007EB3C /* HeroDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetail.swift; sourceTree = "<group>"; };
 		595814EF27B01FCD0007EB3C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		595814F227B024B90007EB3C /* page-characters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "page-characters.json"; path = "../../../page-characters.json"; sourceTree = "<group>"; };
 		595814F427B024D50007EB3C /* LiteralsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiteralsUtils.swift; sourceTree = "<group>"; };
@@ -219,7 +217,6 @@
 			isa = PBXGroup;
 			children = (
 				595814EA27B019680007EB3C /* Hero.swift */,
-				595814EC27B019970007EB3C /* HeroDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -637,7 +634,6 @@
 				595814B927AFE2340007EB3C /* ViewController.swift in Sources */,
 				5958151127B2C8100007EB3C /* BaseViewController.swift in Sources */,
 				5958150427B2C79E0007EB3C /* ListHeroesBuilder.swift in Sources */,
-				595814ED27B019970007EB3C /* HeroDetail.swift in Sources */,
 				5958150B27B2C7E30007EB3C /* BaseWireframe.swift in Sources */,
 				595814F027B01FCD0007EB3C /* Constants.swift in Sources */,
 				5958150327B2C79E0007EB3C /* ListHeroesPresenter.swift in Sources */,

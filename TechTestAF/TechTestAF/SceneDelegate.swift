@@ -19,10 +19,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         let window = UIWindow(windowScene: windowScene)
-        UINavigationBar.appearance().tintColor = UIColor(named: "ForegroundColor")
-        UINavigationBar.appearance().barTintColor = .white
-        let navigationController = UINavigationController(rootViewController: ListHeroesBuilder.build())
-
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().barTintColor = UIColor(named: "ForegroundColor")
+        UINavigationBar.appearance().isTranslucent = true
+        let navigationController = BaseNavigationController(rootViewController: ListHeroesBuilder.build())
+        navigationController.navigationBar.barTintColor = UIColor(named: "ForegroundColor")
+        navigationController.navigationBar.tintColor = .white
+        navigationController.navigationBar.isTranslucent = true
+        navigationController.navigationBar.titleTextAttributes = [
+                                                                  NSAttributedString.Key.foregroundColor: UIColor.white]
 
         window.rootViewController = navigationController
 
