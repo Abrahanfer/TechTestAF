@@ -15,9 +15,12 @@ class BaseViewController: UIViewController {
 
     func showActivityIndicator() {
         activityIndicator = UIActivityIndicatorView()
+        activityIndicator?.style = UIActivityIndicatorView.Style.large
+        activityIndicator?.color = UIColor(named: "ForegroundColor")
+        activityIndicator?.backgroundColor = UIColor(named: "ForegroundAlphaColor")
         self.view.addSubview(activityIndicator!)
         activityIndicator?.snp.makeConstraints { make in
-            make.width.height.equalTo(25.0)
+            make.width.height.equalToSuperview()//(25.0)
             make.center.equalToSuperview()
         }
         self.view.bringSubviewToFront(activityIndicator!)
