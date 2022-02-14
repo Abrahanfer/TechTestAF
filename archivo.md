@@ -9,6 +9,7 @@ Se han usado las siguientes dependencias a través de Cocoapods.
 - ObjectMapper: Para la transformación de los resultados en JSON a modelos. Esta dependencia suele ser necesaria y también podría usarse Codable/Decodable para esta función. Normalmente yo suelo utilizarla en mis proyectos por que me parece que su uso es más intuitivo para cualquier desarrollador con menos experiencia que se pueda incorporar la proyecto.
 - SnapKit: Para una sintaxis más amigable en la creación de constraints de Autolayout por código.
 - SDWebImage: Esta biblioteca es una de las principales junto a KingFisher que se suelen utilizar para la gestión de imágenes. Para este proyecto no aporta demasiadas ventajas pero en proyectos más complejos ofrecen muchas utilidades para la dicha gestión. 
+- SwiftLint: También se ha utiizado SwiftLint para el linteado de código instalado con homebrew para no añadirlo como dependencia del proyecto. 
 
 ## Arquitectura
 Se ha optado por una arquitectura *VIPER* en la que cada módulo se identifica normalmente con una pantalla de la aplicación.
