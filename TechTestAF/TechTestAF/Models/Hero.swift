@@ -16,11 +16,12 @@ struct Hero: Mappable {
         case landscapeIncredible = "landscape_incredible"
     }
 
-    var identifier: UInt64?
-    var name: String?
-    var description: String?
+    private var identifier: UInt64?
+    private var name: String?
+    private var description: String?
     private var thumbnailPath: String?
     private var thumbnailExtension: String?
+    private var comics: [Comic]?
 
     init?(map: Map) {
 
@@ -32,6 +33,15 @@ struct Hero: Mappable {
         description <- map["description"]
         thumbnailPath <- map["thumbnail.path"]
         thumbnailExtension <- map["thumbnail.extension"]
+        comics <- map["comics.items"]
+    }
+
+    func getName() -> String {
+        return name ?? ""
+    }
+
+    func getDescription() -> String {
+        return description ?? ""
     }
 
     func getThumbnailStringFor(size: HeroImageSize) -> String {
@@ -39,5 +49,9 @@ struct Hero: Mappable {
             return ""
         }
         return "\(path)/\(size.rawValue).\(type)"
+    }
+
+    func getComics() -> [Comic] {
+        return comics ?? []
     }
 }

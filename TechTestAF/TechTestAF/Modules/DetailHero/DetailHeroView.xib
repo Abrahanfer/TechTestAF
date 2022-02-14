@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="heroDescription" destination="6Wk-nK-UbY" id="3Nf-PM-I7P"/>
                 <outlet property="heroImage" destination="X7s-ug-oNe" id="cBk-Nl-OD9"/>
+                <outlet property="heroMoreInfo" destination="gWm-hf-FHU" id="4Zn-Kw-Aiu"/>
                 <outlet property="heroName" destination="RAo-Oi-UIX" id="akj-gt-6rY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -27,11 +28,17 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAo-Oi-UIX">
                     <rect key="frame" x="15" y="273" width="384" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" name="AccentColor"/>
+                    <color key="textColor" name="AccentSencondaryColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Wk-nK-UbY">
                     <rect key="frame" x="15" y="298.5" width="384" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" name="AccentSencondaryColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More info" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWm-hf-FHU">
+                    <rect key="frame" x="15" y="324" width="384" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" name="AccentSencondaryColor"/>
                     <nil key="highlightedColor"/>
@@ -45,9 +52,13 @@
                 <constraint firstItem="6Wk-nK-UbY" firstAttribute="top" secondItem="RAo-Oi-UIX" secondAttribute="bottom" constant="5" id="4qb-OK-EFT"/>
                 <constraint firstItem="X7s-ug-oNe" firstAttribute="top" secondItem="tAt-aP-EcC" secondAttribute="top" id="9FQ-Jy-eWS"/>
                 <constraint firstItem="tAt-aP-EcC" firstAttribute="trailing" secondItem="X7s-ug-oNe" secondAttribute="trailing" id="9Ge-QW-Tcp"/>
+                <constraint firstItem="tAt-aP-EcC" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gWm-hf-FHU" secondAttribute="bottom" constant="5" id="FVV-WJ-25T"/>
                 <constraint firstItem="6Wk-nK-UbY" firstAttribute="leading" secondItem="tAt-aP-EcC" secondAttribute="leading" constant="15" id="KyM-wT-Fhq"/>
+                <constraint firstItem="gWm-hf-FHU" firstAttribute="leading" secondItem="tAt-aP-EcC" secondAttribute="leading" constant="15" id="MMc-7r-tIf"/>
                 <constraint firstItem="X7s-ug-oNe" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.25" id="Qjn-9Y-Yae"/>
                 <constraint firstItem="tAt-aP-EcC" firstAttribute="trailing" secondItem="RAo-Oi-UIX" secondAttribute="trailing" constant="15" id="j37-kf-bgj"/>
+                <constraint firstItem="tAt-aP-EcC" firstAttribute="trailing" secondItem="gWm-hf-FHU" secondAttribute="trailing" constant="15" id="mWt-ax-nhy"/>
+                <constraint firstItem="gWm-hf-FHU" firstAttribute="top" secondItem="6Wk-nK-UbY" secondAttribute="bottom" constant="5" id="prn-1w-iOa"/>
                 <constraint firstItem="tAt-aP-EcC" firstAttribute="trailing" secondItem="6Wk-nK-UbY" secondAttribute="trailing" constant="15" id="v84-b7-fkM"/>
                 <constraint firstItem="RAo-Oi-UIX" firstAttribute="top" secondItem="X7s-ug-oNe" secondAttribute="bottom" constant="5" id="yOq-Zd-Bcd"/>
             </constraints>
@@ -55,9 +66,6 @@
         </view>
     </objects>
     <resources>
-        <namedColor name="AccentColor">
-            <color red="0.85490196078431369" green="0.070588235294117646" blue="0.070588235294117646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="AccentSencondaryColor">
             <color red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

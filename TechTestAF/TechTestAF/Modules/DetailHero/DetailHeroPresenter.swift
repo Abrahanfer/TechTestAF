@@ -16,7 +16,6 @@ class DetailHeroPresenter: BasePresenter, DetailHeroPresenterContract {
     var wireframe: DetailHeroWireframeContract?
     private var hero: Hero
 
-    // FIXME: Maybe move this to interactor layer to help getting other resources related
     required init(hero: Hero) {
         self.hero = hero
     }
@@ -26,13 +25,26 @@ class DetailHeroPresenter: BasePresenter, DetailHeroPresenterContract {
             view?.setImage(image: url)
         }
 
-        view?.setMainText(mainText: hero.name ?? "")
-        view?.setDescription(text: hero.description ?? "")
+        view?.setMainText(mainText: hero.getName())
+        view?.setDescription(text: hero.getDescription())
+        let moreInfoText = buildMoreInfoText(hero: hero)
+        view?.setMoreInfo(text: moreInfoText)
 
     }
 
     func viewDidLoad() {
 
+    }
+
+    private func buildMoreInfoText(hero: Hero) -> String {
+        var moreInfo = ""
+        moreInfo.append("Comics:\n")
+
+        for comic in hero.getComics() {
+            moreInfo.append("\(comic.getName())\n")
+        }
+
+        return moreInfo
     }
 }
 

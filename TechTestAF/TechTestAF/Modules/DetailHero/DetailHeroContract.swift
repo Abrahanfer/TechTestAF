@@ -17,6 +17,7 @@ protocol DetailHeroViewContract: BaseViewController {
     func setImage(image: URL)
     func setMainText(mainText: String)
     func setDescription(text: String)
+    func setMoreInfo(text: String)
 }
 
 protocol DetailHeroPresenterContract: BasePresenter {

@@ -14,6 +14,7 @@ class DetailHeroView: BaseViewController, DetailHeroViewContract {
     @IBOutlet weak var heroImage: UIImageView!
     @IBOutlet weak var heroName: UILabel!
     @IBOutlet weak var heroDescription: UILabel!
+    @IBOutlet weak var heroMoreInfo: UILabel!
 
     var presenter: DetailHeroPresenterContract?
 
@@ -33,6 +34,7 @@ class DetailHeroView: BaseViewController, DetailHeroViewContract {
         heroImage.image = nil
         heroName.text = ""
         heroDescription.text = ""
+        heroMoreInfo.text = ""
 
     }
 
@@ -46,5 +48,9 @@ class DetailHeroView: BaseViewController, DetailHeroViewContract {
 
     func setDescription(text: String) {
         heroDescription.text = text
+    }
+
+    func setMoreInfo(text: String) {
+        heroMoreInfo.text = text
     }
 }

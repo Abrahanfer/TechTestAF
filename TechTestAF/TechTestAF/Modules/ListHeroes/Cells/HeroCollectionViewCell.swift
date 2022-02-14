@@ -29,7 +29,7 @@ class HeroCollectionViewCell: UICollectionViewCell {
         if !thumbnailString.isEmpty, let urlImage = URL(string: thumbnailString) {
             heroImage.sd_setImage(with: urlImage, completed: nil)
         }
-        heroTitle.text = hero.name
+        heroTitle.text = hero.getName()
     }
 
 }
