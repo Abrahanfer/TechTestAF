@@ -11,6 +11,7 @@ import CryptoKit
 
 protocol HeroesProviderContract {
     func getHeroes(page: Int) -> Promise<[Hero]>
+    func getHeroDetail(hero: Hero) -> Promise<Hero>
 }
 
 class HeroesProvider: HeroesProviderContract {
@@ -19,6 +20,7 @@ class HeroesProvider: HeroesProviderContract {
         case errorRetreivingHeroesPage
         case errorParsingHeroesPage
         case errorRetreivingHeroDetailPage
+        case errorParsingHeroDetailPage
     }
 
     private let offsetPage = Constants.resultsForPageLimit
@@ -70,6 +72,46 @@ class HeroesProvider: HeroesProviderContract {
 
             dataTask.resume()
 
+        }
+    }
+
+    func getHeroDetail(hero: Hero) -> Promise<Hero> {
+        return Promise<Hero> { promise in
+            // Make url with params for request
+            let timestamp = "\(Date().timeIntervalSince1970)"
+            let characterId = hero.getIdentifier()
+            let md5Hash = getRequestHash(timestamp: timestamp)
+
+            let pathStringPart1 = "\(Constants.host)/v1/public/characters/\(characterId)"
+            let pathStringPart2 = "?ts=\(timestamp)&apikey=\(Constants.apiKeyPublic)&hash=\(md5Hash)"
+            let pathString = pathStringPart1 + pathStringPart2
+
+            let urlRequest = URLRequest(url: URL(string: pathString)!)
+            let dataTask = session.dataTask(with: urlRequest, completionHandler: { data, _, error in
+                guard let data = data else {
+                    promise.reject(HeroesProviderError.errorRetreivingHeroDetailPage)
+                    return
+                }
+
+                do {
+                    let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+                    if let jsonResult = jsonResult as? [String: AnyObject],
+                       let dataJSON = jsonResult["data"] as? [String: AnyObject],
+                       let elements = dataJSON["results"] as? [[String: AnyObject]] {
+                        guard !elements.isEmpty, let hero = Hero(JSON: elements[0]) else {
+                            promise.reject(HeroesProviderError.errorParsingHeroDetailPage)
+                            return
+                        }
+                        promise.fulfill(hero)
+                    } else {
+                        promise.reject(HeroesProviderError.errorParsingHeroDetailPage)
+                    }
+                } catch {
+                    promise.reject(error)
+                }
+            })
+
+            dataTask.resume()
         }
     }
 

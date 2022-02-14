@@ -73,7 +73,7 @@ extension ListHeroesPresenter: ListHeroesInteractorOutputContract {
         case .elementNotFound:
             messageToShow = "Unexpected error"
         }
-        
+
         wireframe?.showAlertForError(error: messageToShow, view: view)
     }
 }

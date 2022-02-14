@@ -11,6 +11,10 @@ import Foundation
 import UIKit
 import PromiseKit
 
+enum DetailHeroError: Error {
+    case failToGetData
+}
+
 protocol DetailHeroViewContract: BaseViewController {
     var presenter: DetailHeroPresenterContract? { get set }
 
@@ -26,17 +30,19 @@ protocol DetailHeroPresenterContract: BasePresenter {
     var wireframe: DetailHeroWireframeContract? { get set }
 
     init(hero: Hero)
-    func viewWillAppear()
     func viewDidLoad()
-
+    func viewWillAppear()
 }
 
 protocol DetailHeroInteractorContract: BaseInteractor {
     var output: DetailHeroInteractorOutputContract? {get set}
+
+    func loadDetail(hero: Hero)
 }
 
 protocol DetailHeroInteractorOutputContract: AnyObject {
-
+    func updateHeroInfo(hero: Hero)
+    func showErrorFeedback(error: DetailHeroError)
 }
 
 protocol DetailHeroWireframeContract: BaseWireframe {

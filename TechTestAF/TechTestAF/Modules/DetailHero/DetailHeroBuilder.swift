@@ -16,7 +16,7 @@ class DetailHeroBuilder {
         let presenter = DetailHeroPresenter(hero: hero)
         let wireframe = DetailHeroWireframe()
 
-        let interactor = DetailHeroInteractor()
+        let interactor = DetailHeroInteractor(provider: HeroesProvider())
 
         view.presenter = presenter
         view.presenter?.view = view

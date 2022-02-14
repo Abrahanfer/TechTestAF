@@ -27,4 +27,15 @@ class HeroesProviderStub: HeroesProviderContract {
             }
         }
     }
+
+    func getHeroDetail(hero: Hero) -> Promise<Hero> {
+        return Promise<Hero> { promise in
+            let data = LiteralsUtils.getCharacters()
+            if let dataJSON = data["data"] as? [String: AnyObject],
+               let elements = dataJSON["results"] as? [[String: AnyObject]] {
+                let hero = Hero(JSON: elements[0])!
+                promise.fulfill(hero)
+            }
+        }
+    }
 }

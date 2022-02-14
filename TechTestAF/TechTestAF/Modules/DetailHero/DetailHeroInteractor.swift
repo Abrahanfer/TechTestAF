@@ -11,5 +11,17 @@ import Foundation
 
 class DetailHeroInteractor: BaseInteractor, DetailHeroInteractorContract {
     weak var output: DetailHeroInteractorOutputContract?
+    var provider: HeroesProviderContract
 
+    init(provider: HeroesProviderContract) {
+        self.provider = provider
+    }
+
+    func loadDetail(hero: Hero) {
+        provider.getHeroDetail(hero: hero).done { heroDetail in
+            self.output?.updateHeroInfo(hero: heroDetail)
+        }.catch { _ in
+            self.output?.showErrorFeedback(error: .failToGetData)
+        }
+    }
 }

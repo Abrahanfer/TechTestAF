@@ -20,7 +20,19 @@ class DetailHeroPresenter: BasePresenter, DetailHeroPresenterContract {
         self.hero = hero
     }
 
+    func viewDidLoad() {
+        self.view?.showActivityIndicator()
+        interactor?.loadDetail(hero: hero)
+    }
+
     func viewWillAppear() {
+    }
+}
+
+// MARK: - DetailHeroInteractorOutputContract
+extension DetailHeroPresenter: DetailHeroInteractorOutputContract {
+
+    func updateHeroInfo(hero: Hero) {
         if let url = URL(string: hero.getThumbnailStringFor(size: .landscapeIncredible)) {
             view?.setImage(image: url)
         }
@@ -29,11 +41,20 @@ class DetailHeroPresenter: BasePresenter, DetailHeroPresenterContract {
         view?.setDescription(text: hero.getDescription())
         let moreInfoText = buildMoreInfoText(hero: hero)
         view?.setMoreInfo(text: moreInfoText)
-
+        self.view?.stopActivityIndicator()
     }
 
-    func viewDidLoad() {
+    func showErrorFeedback(error: DetailHeroError) {
+        guard let view = view else {
+            return
+        }
+        var messageToShow = ""
+        switch error {
+        case .failToGetData:
+            messageToShow = "Error loading data from API"
+        }
 
+        wireframe?.showAlertForError(error: messageToShow, view: view)
     }
 
     private func buildMoreInfoText(hero: Hero) -> String {
@@ -46,11 +67,6 @@ class DetailHeroPresenter: BasePresenter, DetailHeroPresenterContract {
 
         return moreInfo
     }
-}
-
-// MARK: - DetailHeroInteractorOutputContract
-extension DetailHeroPresenter: DetailHeroInteractorOutputContract {
-
 }
 
 // MARK: - DetailHeroWireframeOutputContract

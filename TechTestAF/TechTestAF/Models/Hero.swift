@@ -36,6 +36,10 @@ struct Hero: Mappable {
         comics <- map["comics.items"]
     }
 
+    func getIdentifier() -> UInt64 {
+        return identifier ?? 0
+    }
+
     func getName() -> String {
         return name ?? ""
     }
