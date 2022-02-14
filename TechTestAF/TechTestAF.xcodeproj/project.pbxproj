@@ -90,7 +90,7 @@
 		595814E827B018CD0007EB3C /* HeroesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesProvider.swift; sourceTree = "<group>"; };
 		595814EA27B019680007EB3C /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		595814EF27B01FCD0007EB3C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		595814F227B024B90007EB3C /* page-characters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "page-characters.json"; path = "../../../page-characters.json"; sourceTree = "<group>"; };
+		595814F227B024B90007EB3C /* page-characters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "page-characters.json"; sourceTree = "<group>"; };
 		595814F427B024D50007EB3C /* LiteralsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiteralsUtils.swift; sourceTree = "<group>"; };
 		595814F927B2B5510007EB3C /* Keys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Keys.xcconfig; sourceTree = "<group>"; };
 		595814FB27B2C79E0007EB3C /* ListHeroesContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHeroesContract.swift; sourceTree = "<group>"; };
