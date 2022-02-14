@@ -19,4 +19,6 @@ class ListHeroesWireframe: BaseWireframe, ListHeroesWireframeContract {
         assert(view.navigationController != nil, "Navigation Controller should not be nil")
         view.navigationController?.pushViewController(destinyView, animated: true)
     }
+
+    
 }

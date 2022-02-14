@@ -12,12 +12,12 @@ import XCTest
 class ListHeroesInteractorTests: XCTestCase {
 
     var interactor: ListHeroesInteractor?
-    var interactorOutput: ListHeroesInteractorOutputMock?
+    var interactorOutput: ListHeroesInteractorOutputSpy?
 
     override func setUpWithError() throws {
         // Build interactor with test doubles
-        interactor = ListHeroesInteractor(provider: HeroesProviderMock())
-        interactorOutput = ListHeroesInteractorOutputMock()
+        interactor = ListHeroesInteractor(provider: HeroesProviderStub())
+        interactorOutput = ListHeroesInteractorOutputSpy()
         interactor?.output = interactorOutput
     }
 

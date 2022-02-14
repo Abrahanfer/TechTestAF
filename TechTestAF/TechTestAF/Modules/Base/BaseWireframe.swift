@@ -6,5 +6,18 @@
 //
 
 import Foundation
+import UIKit
 
-class BaseWireframe {}
+class BaseWireframe {
+    func showAlertForError(error: String, view: UIViewController) {
+        let basicErrorAlert = UIAlertController(title: "",
+                                                message: error,
+                                                preferredStyle: .alert)
+
+        basicErrorAlert.addAction(UIAlertAction(title: "Aceptar",
+                                                style: .default,
+                                                handler: nil))
+        
+        view.present(basicErrorAlert, animated: true, completion: nil)
+    }
+}

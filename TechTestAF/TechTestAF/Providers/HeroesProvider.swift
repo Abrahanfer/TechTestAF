@@ -77,7 +77,7 @@ class HeroesProvider: HeroesProviderContract {
     private func getRequestHash(timestamp: String) -> String {
         let stringToHash = "\(timestamp)\(Constants.apiKeyPrivate)\(Constants.apiKeyPublic)"
         guard let dataToHash = stringToHash.data(using: .utf8) else {
-            fatalError("TO IMPLEMENT ERROR CONTROL")
+            assert(false, "Error creating hast for request. HEROES PROVIDER")
         }
         return Insecure.MD5.hash(data: dataToHash).map { String(format: "%02x", $0) }.joined()
     }

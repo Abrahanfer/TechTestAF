@@ -22,7 +22,7 @@ class ListHeroesInteractor: BaseInteractor, ListHeroesInteractorContract {
         provider.getHeroes(page: page).done { heroes in
             self.output?.updateWithHeroes(heroes: heroes)
         }.catch { error in
-            fatalError("TO IMPLEMENT")
+            self.output?.showErrorFeedback(error: .failToGetData)
         }
     }
 }

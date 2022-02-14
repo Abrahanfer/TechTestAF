@@ -10,7 +10,7 @@ import Foundation
 import PromiseKit
 @testable import TechTestAF
 
-class HeroesProviderMock: HeroesProviderContract {
+class HeroesProviderStub: HeroesProviderContract {
     func getHeroes(page: Int) -> Promise<[Hero]> {
         return Promise<[Hero]> { promise in
             let data = LiteralsUtils.getCharacters()

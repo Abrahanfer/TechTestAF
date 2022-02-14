@@ -17,10 +17,10 @@ class LiteralsUtils {
                     return jsonResult
                 }
             } catch {
-                fatalError()
+                fatalError("Error parsing JSON literals from 'page-characters' file")
             }
         }
 
-        fatalError()
+        fatalError("File 'page-characters' not found in main bundle")
     }
 }

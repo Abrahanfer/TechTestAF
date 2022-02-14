@@ -10,7 +10,7 @@ import Foundation
 @testable import TechTestAF
 import XCTest
 
-class ListHeroesInteractorOutputMock: ListHeroesInteractorOutputContract {
+class ListHeroesInteractorOutputSpy: ListHeroesInteractorOutputContract {
     var updateWithHeroesCalled = 0
     var expectationToFullfil: XCTestExpectation?
 

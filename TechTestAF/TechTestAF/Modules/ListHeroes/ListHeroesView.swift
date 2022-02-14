@@ -65,7 +65,7 @@ extension ListHeroesView: UICollectionViewDataSource {
         let cellName = String(describing: HeroCollectionViewCell.self)
         // swiftlint:disable:next force_cast
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as! HeroCollectionViewCell
-        guard let hero = presenter?.getHeroAtPosition(position: indexPath.item) else {
+        guard let hero = try? presenter?.getHeroAtPosition(position: indexPath.item) else {
             assert(false, "SHOUL RECEIVE HERO OBJECT")
             return UICollectionViewCell()
         }

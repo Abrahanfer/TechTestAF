@@ -10,7 +10,7 @@ import Foundation
 @testable import TechTestAF
 import XCTest
 
-class ListHeroesViewMock: BaseViewController, ListHeroesViewContract {
+class ListHeroesViewSpy: BaseViewController, ListHeroesViewContract {
     var presenter: ListHeroesPresenterContract?
     var updateListCalled = 0
     var expectation: XCTestExpectation?

@@ -25,21 +25,15 @@ class ListHeroesPresenter: BasePresenter, ListHeroesPresenterContract {
 
     }
 
-    func updateWithHeroes(heroes: [Hero]) {
-        self.heroes.append(contentsOf: heroes)
-        refreshingData = false
-        view?.updateListWithNewElements()
-    }
-
     func getHeroesCount() -> Int {
         return heroes.count
     }
 
-    func getHeroAtPosition(position: Int) -> Hero {
+    func getHeroAtPosition(position: Int) throws -> Hero {
         if heroes.indices.contains(position) {
             return heroes[position]
         } else {
-            fatalError("GIVE ERROR FEEDBACK")
+            throw ListHeroesError.elementNotFound
         }
     }
 
@@ -47,7 +41,7 @@ class ListHeroesPresenter: BasePresenter, ListHeroesPresenterContract {
         if heroes.indices.contains(position) {
             wireframe?.goToDetail(hero: heroes[position])
         } else {
-            fatalError("REPORT ERROR")
+            assert(false, "Element not found in heroes array")
         }
     }
 
@@ -62,7 +56,26 @@ class ListHeroesPresenter: BasePresenter, ListHeroesPresenterContract {
 
 // MARK: - ListHeroesInteractorOutputContract
 extension ListHeroesPresenter: ListHeroesInteractorOutputContract {
+    func updateWithHeroes(heroes: [Hero]) {
+        self.heroes.append(contentsOf: heroes)
+        refreshingData = false
+        view?.updateListWithNewElements()
+    }
 
+    func showErrorFeedback(error: ListHeroesError) {
+        guard let view = view else {
+            return
+        }
+        var messageToShow = ""
+        switch error {
+        case .failToGetData:
+            messageToShow = "Error loading data from API"
+        case .elementNotFound:
+            messageToShow = "Unexpected error"
+        }
+        
+        wireframe?.showAlertForError(error: messageToShow, view: view)
+    }
 }
 
 // MARK: - ListHeroesWireframeOutputContract

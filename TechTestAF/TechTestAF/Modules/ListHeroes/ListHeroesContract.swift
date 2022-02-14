@@ -11,6 +11,10 @@ import Foundation
 import UIKit
 import PromiseKit
 
+enum ListHeroesError: Error {
+    case failToGetData, elementNotFound
+}
+
 protocol ListHeroesViewContract: BaseViewController {
     var presenter: ListHeroesPresenterContract? { get set }
 
@@ -25,7 +29,7 @@ protocol ListHeroesPresenterContract: BasePresenter {
     func viewWillAppear()
     func viewDidLoad()
     func getHeroesCount() -> Int
-    func getHeroAtPosition(position: Int) -> Hero
+    func getHeroAtPosition(position: Int) throws -> Hero
     func selectItem(position: Int)
     func getPageForItem(itemIndex: Int)
 }
@@ -38,6 +42,7 @@ protocol ListHeroesInteractorContract: BaseInteractor {
 
 protocol ListHeroesInteractorOutputContract: AnyObject {
     func updateWithHeroes(heroes: [Hero])
+    func showErrorFeedback(error: ListHeroesError)
 }
 
 protocol ListHeroesWireframeContract: BaseWireframe {

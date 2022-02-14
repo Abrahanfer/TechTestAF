@@ -11,12 +11,12 @@ import XCTest
 
 class ListHeroesPresenterTests: XCTestCase {
 
-    var view: ListHeroesViewMock?
+    var view: ListHeroesViewSpy?
     var interactor: ListHeroesInteractorMock?
     var presenter: ListHeroesPresenter?
 
     override func setUpWithError() throws {
-        view = ListHeroesViewMock()
+        view = ListHeroesViewSpy()
         interactor = ListHeroesInteractorMock()
         presenter = ListHeroesPresenter()
         presenter?.view = view
