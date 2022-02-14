@@ -18,4 +18,6 @@ class ListHeroesInteractorOutputSpy: ListHeroesInteractorOutputContract {
         updateWithHeroesCalled += 1
         expectationToFullfil?.fulfill()
     }
+
+    func showErrorFeedback(error: ListHeroesError) {}
 }
